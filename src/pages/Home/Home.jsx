@@ -1,18 +1,27 @@
 import { useEffect } from "react";
-import { getTrending } from '../../service/movie-service'
+import { getTrending } from 'service/movie-service';
 
-const Home = async () => {
+const Home =  () => {
 
-    useEffect(() => { getTrending() }, [])
+    useEffect(() => {
+        const getPopularMovies = async () => {
+            try {
+                const movies = await getTrending();
+            }
+            catch (error) {
+                console.log(error.message);
+            }
+        }
+     }, [])
     
-    const trendingMovies = await getTrending();
-    console.log("trendingMovies", trendingMovies);
-    trendingMovies.map(({title})=>console.log("title", title))
+    // const trendingMovies = await getTrending();
+    // console.log("trendingMovies", trendingMovies);
+    // trendingMovies.map(({title})=>console.log("title", title))
 
-    return (
-        <ul>
-            {trendingMovies.map(({ title }) => { return <li>{ title }</li>})}
-        </ul>        
+    return ( <h3>Home</h3>
+        // <ul>
+            // {trendingMovies.map(({ title }) => { return <li>{ title }</li>})}
+        // </ul>        
     );
 }
 

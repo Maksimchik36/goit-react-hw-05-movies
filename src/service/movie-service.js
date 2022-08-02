@@ -1,14 +1,12 @@
 import axios from 'axios';
 
 const API_KEY = '2af9cbb95e748f3536884b81d35f838b';
-const BASE_URL = 'https://api.themoviedb.org/3/';
+axios.defaults.baseURL = 'https://api.themoviedb.org/3'; // австоматически подставляется в путь при запросе
 
-// пример API-запроса  https://api.themoviedb.org/3/movie/550?api_key=2af9cbb95e748f3536884b81d35f838b
-
-
-export async function getTrending () {
+// получает список самых популярных фильмов
+export const getTrending = async () => {
     try {
-        const { data } = await axios.get(`${BASE_URL}trending/movie/day?api_key=${API_KEY}`);
+        const { data } = await axios.get(`/trending/movie/day?api_key=${API_KEY}`);
         console.log("data.results", data.results);
         return data.results;
     }
@@ -20,10 +18,10 @@ export async function getTrending () {
     }
 }
 
-
-export async function getMovieByName (query) {
+// осуществляет поиск кинофильма по ключевому слову
+export const getMovieByName = async (query) => {
     try {
-        const {data} = await axios.get(`${BASE_URL}search/movie?api_key=${API_KEY}&query=${query}`);
+        const {data} = await axios.get(`/search/movie?api_key=${API_KEY}&query=${query}`);
         console.log("data.results", data.results);
         return data.results;
     }
@@ -35,10 +33,10 @@ export async function getMovieByName (query) {
     }
 }
 
-
-export async function getMovieInformation (movie_id) {
+// получает полную информацию о фильме
+export const getMovieInformation = async (movie_id) => {
     try {
-        const {data} = await axios.get(`${BASE_URL}movie/${movie_id}?api_key=${API_KEY}`);
+        const {data} = await axios.get(`/movie/${movie_id}?api_key=${API_KEY}`);
         console.log("data.results", data.results);
         return data.results;
     }
@@ -50,10 +48,10 @@ export async function getMovieInformation (movie_id) {
     }
 }
 
-
-export async function getCastInformation (movie_id) {
+// получает информацию о актёрском составе фильма
+export const getCastInformation = async (movie_id) => {
     try {
-        const {data} = await axios.get(`${BASE_URL}movie/${movie_id}/credits?api_key=${API_KEY}`);
+        const {data} = await axios.get(`/movie/${movie_id}/credits?api_key=${API_KEY}`);
         console.log("data.results", data.results);
         return data.results;
     }
@@ -65,10 +63,10 @@ export async function getCastInformation (movie_id) {
     }
 }
 
-
-export async function getMovieReviews (movie_id) {
+// получает обзоры
+export const getMovieReviews = async (movie_id) => {
     try {
-        const {data} = await axios.get(`${BASE_URL}movie/${movie_id}/reviews?api_key=${API_KEY}`);
+        const {data} = await axios.get(`/movie/${movie_id}/reviews?api_key=${API_KEY}`);
         console.log("data.results", data.results);
         return data.results;
     }
