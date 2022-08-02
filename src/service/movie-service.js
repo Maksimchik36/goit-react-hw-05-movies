@@ -1,18 +1,81 @@
+import axios from 'axios';
+
 const API_KEY = '2af9cbb95e748f3536884b81d35f838b';
+const BASE_URL = 'https://api.themoviedb.org/3/';
 
 // пример API-запроса  https://api.themoviedb.org/3/movie/550?api_key=2af9cbb95e748f3536884b81d35f838b
 
-//     https://developers.themoviedb.org/3/trending/get-trending
-// /trending/get-trending список самых популярных фильмов на сегодня для создания коллекции на главной странице.
-//     https://developers.themoviedb.org/3/search/search-movies
-// / search / search - movies поиск кинофильма по ключевому слову на странице фильмов.
-//     https://developers.themoviedb.org/3/movies/get-movie-details
-// /movies/get - movie - details запрос полной информации о фильме для страницы кинофильма.
-//     https://developers.themoviedb.org/3/movies/get-movie-credits
-// /movies/get - movie - credits запрос информации о актёрском составе для страницы кинофильма.
-//     https://developers.themoviedb.org/3/movies/get-movie-reviews
-// /movies/get-movie-reviews запрос обзоров для страницы кинофильма.
+
+export async function getTrending () {
+    try {
+        const { data } = await axios.get(`${BASE_URL}trending/movie/day?api_key=${API_KEY}`);
+        console.log("data.results", data.results);
+        return data.results;
+    }
+    catch(error) {
+        console.log("error", error);
+    }
+    finally {
+        console.log("finally");        
+    }
+}
 
 
+export async function getMovieByName (query) {
+    try {
+        const {data} = await axios.get(`${BASE_URL}search/movie?api_key=${API_KEY}&query=${query}`);
+        console.log("data.results", data.results);
+        return data.results;
+    }
+    catch(error) {
+        console.log("error", error);
+    }
+    finally {
+        console.log("finally");        
+    }
+}
 
 
+export async function getMovieInformation (movie_id) {
+    try {
+        const {data} = await axios.get(`${BASE_URL}movie/${movie_id}?api_key=${API_KEY}`);
+        console.log("data.results", data.results);
+        return data.results;
+    }
+    catch(error) {
+        console.log("error", error);
+    }
+    finally {
+        console.log("finally");        
+    }
+}
+
+
+export async function getCastInformation (movie_id) {
+    try {
+        const {data} = await axios.get(`${BASE_URL}movie/${movie_id}/credits?api_key=${API_KEY}`);
+        console.log("data.results", data.results);
+        return data.results;
+    }
+    catch(error) {
+        console.log("error", error);
+    }
+    finally {
+        console.log("finally");        
+    }
+}
+
+
+export async function getMovieReviews (movie_id) {
+    try {
+        const {data} = await axios.get(`${BASE_URL}movie/${movie_id}/reviews?api_key=${API_KEY}`);
+        console.log("data.results", data.results);
+        return data.results;
+    }
+    catch(error) {
+        console.log("error", error);
+    }
+    finally {
+        console.log("finally");        
+    }
+}
