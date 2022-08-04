@@ -8,7 +8,6 @@ import { getMovieInformation } from "service/movie-service";
 
 const MovieDetails = () => {
     const [movieInformation, setMovieInformation] = useState('');
-    const [isMovieOpen, setIsMovieOpen] = useState(false); // открыто ли окно с фильмом
     const [isCastLoad, setIsCastLoad] = useState(false); // подгружен ли актерский состав
     const [isReviews, setIsReviews] = useState(false);  // подгружены ли отзывы
 

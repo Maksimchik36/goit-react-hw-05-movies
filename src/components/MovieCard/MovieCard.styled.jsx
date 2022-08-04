@@ -4,10 +4,17 @@ export const MovieCardSt = styled.div`
 `;
 
 export const TitleSt = styled.p`
+font-size: 30px;
+font-weight: 700;
 `;
 
 export const VoteAverageSt = styled.p`
+font-weight: 700;
 `;
 
 export const GenresSt = styled.p`
 `;
+
+export const OverviewSt = styled.p`
+`;
+

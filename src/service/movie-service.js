@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API_KEY = '2af9cbb95e748f3536884b81d35f838b';
-axios.defaults.baseURL = 'https://api.themoviedb.org/3'; // австоматически подставляется в путь при запросе
+axios.defaults.baseURL = 'https://api.themoviedb.org/3'; // автоматически подставляется в путь при запросе
 
 // получает список самых популярных фильмов
 export const getTrending = async () => {

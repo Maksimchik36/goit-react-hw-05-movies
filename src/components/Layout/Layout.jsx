@@ -1,12 +1,12 @@
-import { Link, Outlet } from 'react-router-dom';
-import { LayoutSt } from './Layout.styled';
+import { Outlet } from 'react-router-dom';
+import { LayoutSt, NavLinkSt, NavWrap } from './Layout.styled';
 
 const Layout = () => {
   return <LayoutSt>
-    <nav>
-      <Link to="/" style={{ marginRight: "20px", textDecoration: "none"}}>Home</Link>
-      <Link to="/movies" style={{ textDecoration: "none"}}>Movies</Link>
-    </nav>
+    <NavWrap>
+      <NavLinkSt to="/" style={{ marginRight: "20px", textDecoration: "none"}}>HOME</NavLinkSt>
+      <NavLinkSt to="/movies" style={{ textDecoration: "none"}}>MOVIES</NavLinkSt>
+    </NavWrap>
     <Outlet />
   </LayoutSt>
 }
