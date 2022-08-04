@@ -37,7 +37,7 @@ export const getMovieByName = async (query) => {
 export const getMovieInformation = async (movie_id) => {
     try {
         const {data} = await axios.get(`/movie/${movie_id}?api_key=${API_KEY}`);
-        console.log("data", data);
+        // console.log("dataFilm", data);
         return data;
     }
     catch(error) {
@@ -53,7 +53,7 @@ export const getCastInformation = async (movie_id) => {
     try {
         const { data } = await axios.get(`/movie/${movie_id}/credits?api_key=${API_KEY}`);
         //    /person/{person_id}?api_key=${API_KEY}
-        console.log("data", data);
+        console.log("dataCast", data);
         return data;
     }
     catch(error) {
@@ -70,7 +70,7 @@ export const getMovieReviews = async (movie_id) => {
     try {
         const { data } = await axios.get(`/movie/${movie_id}/reviews?api_key=${API_KEY}`);
         // /review/${review_id}?api_key=${API_KEY}
-        console.log("data", data);
+        console.log("dataReviews", data);
         return data;
     }
     catch(error) {

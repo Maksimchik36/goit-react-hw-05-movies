@@ -34,9 +34,7 @@ const onSubmit = (query) => {
     }
         
 
-    return (<>
-        <h3>Movies</h3>
-        
+    return (<>    
         {<Form onSubmit={onSubmit}></Form>}
 
         {movies && <MoviesList movies={movies}></MoviesList>}
