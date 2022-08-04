@@ -14,7 +14,7 @@ export const getTrending = async () => {
         console.log("error", error);
     }
     finally {
-        console.log("finally");        
+        console.log("finally getTrending");        
     }
 }
 
@@ -29,7 +29,7 @@ export const getMovieByName = async (query) => {
         console.log("error", error);
     }
     finally {
-        console.log("finally");        
+        console.log("finally getMovieByName");        
     }
 }
 
@@ -37,43 +37,46 @@ export const getMovieByName = async (query) => {
 export const getMovieInformation = async (movie_id) => {
     try {
         const {data} = await axios.get(`/movie/${movie_id}?api_key=${API_KEY}`);
-        console.log("data.results", data.results);
-        return data.results;
+        console.log("data", data);
+        return data;
     }
     catch(error) {
         console.log("error", error);
     }
     finally {
-        console.log("finally");        
+        console.log("finally getMovieInformation");        
     }
 }
 
 // получает информацию о актёрском составе фильма
 export const getCastInformation = async (movie_id) => {
     try {
-        const {data} = await axios.get(`/movie/${movie_id}/credits?api_key=${API_KEY}`);
-        console.log("data.results", data.results);
-        return data.results;
+        const { data } = await axios.get(`/movie/${movie_id}/credits?api_key=${API_KEY}`);
+        //    /person/{person_id}?api_key=${API_KEY}
+        console.log("data", data);
+        return data;
     }
     catch(error) {
         console.log("error", error);
     }
     finally {
-        console.log("finally");        
+        console.log("finally getCastInformation");        
     }
 }
 
 // получает обзоры
+
 export const getMovieReviews = async (movie_id) => {
     try {
-        const {data} = await axios.get(`/movie/${movie_id}/reviews?api_key=${API_KEY}`);
-        console.log("data.results", data.results);
-        return data.results;
+        const { data } = await axios.get(`/movie/${movie_id}/reviews?api_key=${API_KEY}`);
+        // /review/${review_id}?api_key=${API_KEY}
+        console.log("data", data);
+        return data;
     }
     catch(error) {
         console.log("error", error);
     }
     finally {
-        console.log("finally");        
+        console.log("finally getMovieReviews");        
     }
 }

@@ -4,8 +4,8 @@ import { LayoutSt } from './Layout.styled';
 const Layout = () => {
   return <LayoutSt>
     <nav>
-      <Link to="/" style={{ "marginRight": "20px"}}>Home</Link>
-      <Link to="/movies">Movies</Link>
+      <Link to="/" style={{ marginRight: "20px", textDecoration: "none"}}>Home</Link>
+      <Link to="/movies" style={{ textDecoration: "none"}}>Movies</Link>
     </nav>
     <Outlet />
   </LayoutSt>
