@@ -34,10 +34,18 @@ const MovieDetails = () => {
         getInformation();
      }, [movieId])
     
+    const { original_title, vote_average, overview, genres, poster_path } = movieInformation;
+
     
     return <WrapperMovieDetailsSt>
         {movieInformation && <Button text="Go back"></Button>}
-        <MovieCard dataMovie={movieInformation}></MovieCard>
+        <MovieCard
+            original_title={original_title}
+            vote_average={vote_average}
+            overview={overview}
+            genres={genres}
+            poster_path={poster_path}
+        ></MovieCard>
         {isCastLoad && <Cast></Cast>}
         {isReviews && <Reviews></Reviews>}
     </WrapperMovieDetailsSt>;

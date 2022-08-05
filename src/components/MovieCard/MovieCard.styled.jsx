@@ -12,7 +12,7 @@ export const VoteAverageSt = styled.p`
 font-weight: 700;
 `;
 
-export const GenresSt = styled.p`
+export const GenresSt = styled.ul`
 `;
 
 export const OverviewSt = styled.p`
