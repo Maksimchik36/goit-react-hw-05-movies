@@ -5,7 +5,7 @@ export const LayoutSt = styled.div`
 padding: 20px;
 `;
 
-export const NavWrap = styled.nav`
+export const NavWrapSt = styled.nav`
 padding: 20px;
 background-color: #d9afd1;
 `;

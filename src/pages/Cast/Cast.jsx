@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getCastInformation } from "service/movie-service";
-import CastList from "components/CastList";
+import { CastSt, ActorSt, NameSt, CharacterSt } from "./Cast.styled";
 
 const Cast = () => {
-    const [castInformation, setCastInformation] = useState('');
+    const [castInformation, setCastInformation] = useState([]);
 
     const {movieId} = useParams(); 
 
@@ -28,7 +28,14 @@ const Cast = () => {
         getInformation();
      }, [movieId])
 
-    return <CastList dataCast={castInformation} >Cast</CastList>;
+    const BASE_URL = `https://image.tmdb.org/t/p/w200`;
+    
+    return  <CastSt>Cast: {castInformation.map(({character, original_name, profile_path}) => (<ActorSt key={original_name}>
+        <img src={`${BASE_URL}${profile_path}`} alt={`Photo ${original_name}`} />
+            <NameSt>{original_name}</NameSt>
+            <CharacterSt>Character: {character}</CharacterSt>
+
+        </ActorSt>))}</CastSt>;
 }
 
 export default Cast;

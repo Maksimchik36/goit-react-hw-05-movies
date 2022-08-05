@@ -9,7 +9,7 @@ import { getMovieInformation } from "service/movie-service";
 
 const MovieDetails = () => {
     const [movieInformation, setMovieInformation] = useState('');
-    const [isCastLoad, setIsCastLoad] = useState(true); // подгружен ли актерский состав
+    const [isCastLoad, setIsCastLoad] = useState(false); // подгружен ли актерский состав
     const [isReviews, setIsReviews] = useState(false);  // подгружены ли отзывы
 
     const {movieId} = useParams(); 
@@ -38,7 +38,7 @@ const MovieDetails = () => {
     return <WrapperMovieDetailsSt>
         {movieInformation && <Button text="Go back"></Button>}
         <MovieCard dataMovie={movieInformation}></MovieCard>
-        {isCastLoad && <Cast>Cast</Cast>}
+        {isCastLoad && <Cast></Cast>}
         {isReviews && <Reviews></Reviews>}
     </WrapperMovieDetailsSt>;
 }
