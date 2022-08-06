@@ -13,8 +13,8 @@ export const FormSt = styled.form`
 
   export const FormButtonSt = styled.button`
   display: inline-block;
-  width: 48px;
-  height: 48px;
+  width: 36px;
+  height: 36px;
   border: 0;
   background-image: url('https://image.flaticon.com/icons/svg/149/149852.svg');
   background-size: 40%;
@@ -33,13 +33,16 @@ export const FormInputSt = styled.input`
   display: inline-block;
   width: 100%;
   font: inherit;
-  font-size: 20px;
-  border: none;
-  outline: none;
+  font-size: 24px;
   padding-left: 4px;
   padding-right: 4px;
+  
   &::placeholder {
   font: inherit;
   font-size: 18px;
-}
+  }
+
+  &::hover{
+      border-color: skyblue;
+  }
 `;

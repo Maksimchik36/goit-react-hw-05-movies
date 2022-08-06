@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieReviews } from "service/movie-service";
-import { ReviewsSt, ReviewSt, AuthorSt, ContentSt, DataSt } from "./Reviews.styled";
+import { ReviewsSt, ReviewSt, AuthorSt, ContentSt } from "./Reviews.styled";
 
 const Reviews = () => {
     const [reviewsInformation, setReviewsInformation] = useState([]);
@@ -29,11 +29,9 @@ const Reviews = () => {
 
     console.log("reviewsInformation", reviewsInformation);
 
-    return <ReviewsSt>Reviews: {reviewsInformation.map(({ author, content, updated_at }) => (<ReviewSt key={author}>
+    return <ReviewsSt>{reviewsInformation.map(({ author, content }) => (<ReviewSt key={author}>
         <AuthorSt>{author}</AuthorSt>
         <ContentSt>{content}</ContentSt>
-        <DataSt>{updated_at}</DataSt>
-
         </ReviewSt>))}</ReviewsSt>;}
 
 export default Reviews;

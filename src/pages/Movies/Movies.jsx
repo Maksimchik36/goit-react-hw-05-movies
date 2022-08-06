@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Form from "components/Form";
 import { getMovieByName } from '../../service/movie-service';
 import MoviesList from "components/MoviesList";
+import { MoviesSt } from "./Movies.styled";
 
 const Movies = () => {
     const [query, setQuery] = useState('');  // значение запроса
@@ -34,11 +35,11 @@ const onSubmit = (query) => {
     }
         
 
-    return (<>    
+    return (<MoviesSt>    
         {<Form onSubmit={onSubmit}></Form>}
 
         {movies && <MoviesList movies={movies}></MoviesList>}
-        </>    
+        </MoviesSt>    
     );
 }
 

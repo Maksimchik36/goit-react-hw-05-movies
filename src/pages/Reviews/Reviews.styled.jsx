@@ -11,15 +11,10 @@ export const ReviewSt = styled.li`
 `;
 
 export const AuthorSt = styled.p`
-font-size: 20px;
+font-size: 18px;
 `;
 
 export const ContentSt = styled.p`
-font-size: 15px;
-font-weight: 400;
-`;
-
-export const DataSt = styled.p`
 font-size: 15px;
 font-weight: 400;
 `;

@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
 
-export const LayoutSt = styled.div`
+export const HeaderSt = styled.div`
 padding: 20px;
 `;
 
@@ -14,6 +14,7 @@ export const NavLinkSt = styled(NavLink)`
 font-size: 25px;
 font-weight: 700;
 color: black;
+text-decoration: none;
 
   &.active {
     color: #83faec;

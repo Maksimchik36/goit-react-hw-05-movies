@@ -1,17 +1,14 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
 import Button from "components/Button";
 import MovieCard from "components/MovieCard";
-import { WrapperMovieDetailsSt } from "./MovieDetails.styled";
-import Cast from "pages/Cast";
-import Reviews from "pages/Reviews";
+import { WrapperMovieDetailsSt, NavLinkSt } from "./MovieDetails.styled";
+import Title from "components/Title";
 import { getMovieInformation } from "service/movie-service";
 
 const MovieDetails = () => {
     const [movieInformation, setMovieInformation] = useState('');
-    const [isCastLoad, setIsCastLoad] = useState(false); // подгружен ли актерский состав
-    const [isReviews, setIsReviews] = useState(false);  // подгружены ли отзывы
-
+    
     const {movieId} = useParams(); 
 
 
@@ -46,8 +43,11 @@ const MovieDetails = () => {
             genres={genres}
             poster_path={poster_path}
         ></MovieCard>
-        {isCastLoad && <Cast></Cast>}
-        {isReviews && <Reviews></Reviews>}
+
+        <Title text="Additional information"></Title>
+        <NavLinkSt to="cast">Cast</NavLinkSt>
+        <NavLinkSt to="reviews">Reviews</NavLinkSt>
+        <Outlet />
     </WrapperMovieDetailsSt>;
 }
 
