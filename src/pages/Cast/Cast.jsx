@@ -31,14 +31,14 @@ const Cast = () => {
 
     const BASE_URL = `https://image.tmdb.org/t/p/w200`;
     
-const isCastInformationEmpty = castInformation.length === 0;
+const isCastInformation = castInformation.length !== 0;
 
     return <>
-    {isCastInformationEmpty ? <ErrorMessage text="There is no information about the cast.">ErrorMessage</ErrorMessage> : <CastSt>{castInformation.map(({ character, original_name, profile_path }) => (<ActorSt key={original_name}>
+    {isCastInformation ? <CastSt>{castInformation.map(({ character, original_name, profile_path }) => (<ActorSt key={original_name}>
            <img src={`${BASE_URL}${profile_path}`} alt={`Photo ${original_name}`} />
             <NameSt>{original_name}</NameSt>
             <CharacterSt>Character: {character}</CharacterSt>
-        </ActorSt>))}</CastSt>}</>
+        </ActorSt>))}</CastSt> : <ErrorMessage text="There is no information about the cast.">ErrorMessage</ErrorMessage>} </> 
 }
 
 export default Cast;

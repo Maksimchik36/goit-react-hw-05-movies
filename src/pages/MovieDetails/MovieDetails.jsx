@@ -3,7 +3,7 @@ import { Outlet, useParams } from "react-router-dom";
 import Button from "components/Button";
 import MovieCard from "components/MovieCard";
 import { WrapperMovieDetailsSt, NavLinkSt } from "./MovieDetails.styled";
-import Title from "components/Title";
+import { InformationSt } from "./MovieDetails.styled";
 import { getMovieInformation } from "service/movie-service";
 
 const MovieDetails = () => {
@@ -44,7 +44,7 @@ const MovieDetails = () => {
             poster_path={poster_path}
         ></MovieCard>
 
-        <Title text="Additional information"></Title>
+        <InformationSt>Additional information:</InformationSt>
         <NavLinkSt to="cast">Cast</NavLinkSt>
         <NavLinkSt to="reviews">Reviews</NavLinkSt>
         <Outlet />

@@ -27,15 +27,14 @@ const Reviews = () => {
         getInformation();
     }, [movieId])
 
-    const isReviewsInformationEmpty = reviewsInformation.length === 0;
+    const isReviewsInformation = reviewsInformation.length !== 0;
 
     return <>
-        {isReviewsInformationEmpty ? <ErrorMessage text="There is no reviews." > ErrorMessage</ErrorMessage > 
-        : <ReviewsSt>{reviewsInformation.map(({ author, content }) => (<ReviewSt key={author}>
+        {isReviewsInformation ? <ReviewsSt>{reviewsInformation.map(({ author, content }) => (<ReviewSt key={author}>
         <AuthorSt>{author}</AuthorSt>
         <ContentSt>{content}</ContentSt>
-    </ReviewSt>))}</ReviewsSt>}</>
-
+    </ReviewSt>))}</ReviewsSt> : <ErrorMessage text="There is no reviews." > ErrorMessage</ErrorMessage >}</>
 }
+
 
 export default Reviews;

@@ -15,3 +15,8 @@ color: black;
     color: #0a4dfb;
   }
 `
+
+export const InformationSt = styled.p`
+font-size: 20px;
+font-weight: 500;
+`;
