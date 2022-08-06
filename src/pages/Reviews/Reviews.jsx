@@ -2,11 +2,12 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieReviews } from "service/movie-service";
 import { ReviewsSt, ReviewSt, AuthorSt, ContentSt } from "./Reviews.styled";
+import ErrorMessage from "components/ErrorMessage";
 
 const Reviews = () => {
     const [reviewsInformation, setReviewsInformation] = useState([]);
 
-    const { movieId } = useParams(); 
+    const { movieId } = useParams();
     
     useEffect(() => {
         if (!movieId) {
@@ -17,7 +18,6 @@ const Reviews = () => {
         const getInformation = async () => {
             try {
                 const dataReviews = await getMovieReviews(movieId);
-                console.log("dataReviews", dataReviews);
                 setReviewsInformation(dataReviews)
             }
             catch (error) {
@@ -25,13 +25,17 @@ const Reviews = () => {
             }
         }
         getInformation();
-     }, [movieId])
+    }, [movieId])
 
-    console.log("reviewsInformation", reviewsInformation);
+    const isReviewsInformationEmpty = reviewsInformation.length === 0;
 
-    return <ReviewsSt>{reviewsInformation.map(({ author, content }) => (<ReviewSt key={author}>
+    return <>
+        {isReviewsInformationEmpty ? <ErrorMessage text="There is no reviews." > ErrorMessage</ErrorMessage > 
+        : <ReviewsSt>{reviewsInformation.map(({ author, content }) => (<ReviewSt key={author}>
         <AuthorSt>{author}</AuthorSt>
         <ContentSt>{content}</ContentSt>
-        </ReviewSt>))}</ReviewsSt>;}
+    </ReviewSt>))}</ReviewsSt>}</>
+
+}
 
 export default Reviews;

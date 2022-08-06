@@ -1,5 +1,6 @@
 import { BsStarFill } from 'react-icons/bs';
-import { MovieCardSt, WrapperMovieSt, TitleSt, VoteAverageSt, GenresSt, OverviewSt } from "./MovieCard.styled"
+import { MovieCardSt, WrapperMovieSt, VoteAverageSt, GenresSt, OverviewSt } from "./MovieCard.styled";
+import Title from 'components/Title';
 
 const MovieCard = ({ original_title, vote_average, overview, genres = [], poster_path }) => {
     
@@ -10,7 +11,7 @@ const MovieCard = ({ original_title, vote_average, overview, genres = [], poster
     return (<MovieCardSt>
         <img src={photo} alt="photo"/>
         <WrapperMovieSt>
-            <TitleSt>{original_title}</TitleSt>        
+            <Title text={original_title}></Title>        
             <VoteAverageSt><BsStarFill style={{ borderColor: "black", color: "orange" }} /> {vote_average}</VoteAverageSt>
             <GenresSt>{genres.map(el => el.name).join(', ')}</GenresSt>
             <OverviewSt>{ overview }</OverviewSt>

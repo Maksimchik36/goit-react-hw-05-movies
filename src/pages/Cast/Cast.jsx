@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getCastInformation } from "service/movie-service";
 import { CastSt, ActorSt, NameSt, CharacterSt } from "./Cast.styled";
+import ErrorMessage from "components/ErrorMessage";
 
 const Cast = () => {
     const [castInformation, setCastInformation] = useState([]);
@@ -30,12 +31,14 @@ const Cast = () => {
 
     const BASE_URL = `https://image.tmdb.org/t/p/w200`;
     
-    return  <CastSt>Cast: {castInformation.map(({character, original_name, profile_path}) => (<ActorSt key={original_name}>
-        <img src={`${BASE_URL}${profile_path}`} alt={`Photo ${original_name}`} />
+const isCastInformationEmpty = castInformation.length === 0;
+
+    return <>
+    {isCastInformationEmpty ? <ErrorMessage text="There is no information about the cast.">ErrorMessage</ErrorMessage> : <CastSt>{castInformation.map(({ character, original_name, profile_path }) => (<ActorSt key={original_name}>
+           <img src={`${BASE_URL}${profile_path}`} alt={`Photo ${original_name}`} />
             <NameSt>{original_name}</NameSt>
             <CharacterSt>Character: {character}</CharacterSt>
-
-        </ActorSt>))}</CastSt>;
+        </ActorSt>))}</CastSt>}</>
 }
 
 export default Cast;
