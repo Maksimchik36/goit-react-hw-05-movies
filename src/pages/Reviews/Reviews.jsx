@@ -33,7 +33,7 @@ const Reviews = () => {
         {isReviewsInformation ? <ReviewsSt>{reviewsInformation.map(({ author, content }) => (<ReviewSt key={author}>
         <AuthorSt>{author}</AuthorSt>
         <ContentSt>{content}</ContentSt>
-    </ReviewSt>))}</ReviewsSt> : <ErrorMessage text="There is no reviews." > ErrorMessage</ErrorMessage >}</>
+    </ReviewSt>))}</ReviewsSt> : <ErrorMessage text="There is no reviews." ></ErrorMessage >}</>
 }
 
 

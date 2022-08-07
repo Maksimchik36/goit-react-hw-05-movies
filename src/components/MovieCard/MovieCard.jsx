@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'; 
 import { BsStarFill } from 'react-icons/bs';
 import { MovieCardSt, WrapperMovieSt, VoteAverageSt, GenresSt, OverviewSt } from "./MovieCard.styled";
 import Title from 'components/Title';
@@ -20,5 +21,6 @@ const MovieCard = ({ original_title, vote_average, overview, genres = [], poster
         
     )
 }
+
 
 export default MovieCard;

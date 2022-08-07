@@ -1,8 +1,14 @@
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types'; 
 import { ButtonSt } from './Button.styled';
 
-const Button = ({ text }) => {
-    return <ButtonSt><Link to="/" style={{textDecoration: "none"}}>{ text }</Link></ButtonSt>
+const Button = ({ text, onClick }) => {
+    return <ButtonSt onClick={onClick}>{ text }</ButtonSt>
 }
+
+
+Button.propTypes = {
+    text: PropTypes.string.isRequired,
+}
+
 
 export default Button;

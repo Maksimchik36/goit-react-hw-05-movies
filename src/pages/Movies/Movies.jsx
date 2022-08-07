@@ -30,9 +30,9 @@ const Movies = () => {
 
     
     // перезаписывает значение query в state (Movies)
-const onSubmit = (query) => {
-      setQuery(query);
-    }
+    const onSubmit = (query) => {
+        setQuery(query);
+        }
         
 
     return (<MoviesSt>    

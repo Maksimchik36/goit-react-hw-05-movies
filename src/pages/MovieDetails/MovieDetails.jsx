@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Outlet, useParams } from "react-router-dom";
+import { Outlet, useParams, useNavigate, useLocation } from "react-router-dom";
 import Button from "components/Button";
 import MovieCard from "components/MovieCard";
 import { WrapperMovieDetailsSt, NavLinkSt } from "./MovieDetails.styled";
@@ -10,8 +10,10 @@ const MovieDetails = () => {
     const [movieInformation, setMovieInformation] = useState('');
     
     const {movieId} = useParams(); 
+    const navigate = useNavigate();
+    const location = useLocation();
 
-
+   
     useEffect(() => {
         if (!movieId) {
             return;
@@ -33,9 +35,12 @@ const MovieDetails = () => {
     
     const { original_title, vote_average, overview, genres, poster_path } = movieInformation;
 
-    
+        
     return <WrapperMovieDetailsSt>
-        {movieInformation && <Button text="Go back"></Button>}
+        
+            <Button type="button"
+        onClick={() => {navigate(location?.state?.from?.pathname ?? '/')
+        }} text="Go back"></Button>
         <MovieCard
             original_title={original_title}
             vote_average={vote_average}
