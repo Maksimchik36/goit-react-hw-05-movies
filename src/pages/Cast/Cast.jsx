@@ -40,7 +40,7 @@ const Cast = () => {
         {isCastInformation ? <CastSt>{castInformation.map(({ character, original_name, profile_path }) => {
             const imgSrc = profile_path ? `${BASE_URL}${profile_path}` : neutralActorCard;
             return <ActorSt key={original_name}>
-                <img src={imgSrc} />
+                <img src={imgSrc} alt=""/>
             <NameSt>{original_name}</NameSt>
             <CharacterSt>Character: {character}</CharacterSt>
         </ActorSt>
